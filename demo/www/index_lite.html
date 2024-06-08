@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>なでしこ3 - Webエディタ</title>
+  <!-- common -->
+  <link rel="stylesheet" type="text/css" href="/nako3demo/css/common.css">
+  <link rel="stylesheet" href="/nako3src/wnako3_editor.css">
+  <!-- index -->
+  <link rel="stylesheet" type="text/css" href="/nako3demo/css/index.css">
+  <!-- editor -->
+  <link rel="stylesheet" type="text/css" href="/nako3demo/css/editor.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/three/build/three.module.js",
+        "addons/": "/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- header title -->
+  <h1 id="title">
+    <img src="/nako3demo/image/nakopad-icon256.png" alt="なでしこ3" style="height:1.3em;"/>
+    なでしこ3 - Webエディタ
+  </h1>
+
+  <!-- menu bar-->
+  <div class="menubar">
+    <ul>
+      <li><a href="#about" class="pure-button">なでしこ3とは</a></li>
+      <li><a href="#help" class="pure-button">ヘルプ</a></li>
+    </ul>
+    <div style="clear:both"></div>
+  </div>
+
+  <!-- editor -->
+  <div id="editor" class="edit_div">
+    <p class="edit_head">簡易エディタ:</p>
+    <textarea id="src_box" rows="4" title="簡易エディタ">
+["addons/controls/OrbitControls.js"]をTJSプラグイン読み込む
+</textarea>
+    <div class="buttons">
+      <button onclick="runBox('src_box')" class="default_button">実行</button>
+      <button onclick="lexerBox('src_box')" class="default_button">字句解析</button>
+      <button onclick="parseBox('src_box')" class="default_button">構文解析</button>
+      <button onclick="compileBox('src_box')" class="default_button">コンパイル</button>
+      <button onclick="resetBoxTurtle('src_box')" class="default_button">クリア</button>
+    </div>
+    <div id="err" class="err"></div>
+    <div id="exception" class="err"></div>
+    <div class="turtle_box">
+      <p class="edit_head"><a name="run">実行結果:</a> &nbsp; (<a href="#src_box" id="backlink">↑戻る</a>)</p>
+      <div>
+        <canvas id="three_cv" class="turtle_canvas" width="800" height="400"></canvas>
+        <p style="text-align: left;">
+importmapに以下の定義があります。<br>
+　three→threeJS/build/three.module.js<br>
+　addons/→threeJS/examples/jsm/<br>
+初期化処理でthree.module.jsの読み込みを実行しています。<br>
+Canvasのidは「three_cv」です。<br>
+        </p>
+        <div id="result_div"></div>
+      </div>
+      <p id="src_box_info" class="info"></p>
+    </div>
+  </div>
+
+  <br />
+  <!-- about group panel -->
+  <h3><a id="about">「なでしこ3」とは</a></h3>
+  <div class="about-group">
+    <ul>
+      <li><a class="pure-button" href="http://nadesi.com/doc3">なでしこ3のマニュアル(→Web)</a></li>
+      <li><a class="pure-button" href="http://nadesi.com/v3/doc">命令リファレンス(→Web)</a></li>
+      <li><a class="pure-button" href="browsers.html">対応機器/Webブラウザ</a></li>
+    </ul>
+  </div>
+
+  <h3><a id="help">ヘルプ</a></h3>
+  <div class="about-group">
+    <div class="helpbox">
+      <h4>Webエディタについて</h4>
+      <div>なでしこ3のWeb版を実行が可能なエディタです。プログラムを入力してエディタ下部にある「実行」ボタンを押してプログラムを実行できます。</div>
+    </div>
+    <div class="helpbox">
+      <h4>「クリア」ボタンについて</h4>
+      <div>実行結果をクリアします。</div>
+    </div>
+    <div class="helpbox">
+      <div><a class="pure-button" href="#title">トップへ</a></div>
+    </div>
+  </div>
+
+  <!-- editor script -->
+  <!--React.jsのスクリプトはHTMLの末尾で読み込む-->
+  <!-- なでしこ-->
+  <script src="/nako3release/wnako3.js"></script>
+  <script src="/nako3demo/js/common.js"></script>
+  <script src="js/turtle_test_withcompile.js"></script>
+  <script src="/lib/plugin_weykthree.js" type="module"></script>
+</body>
+</html>

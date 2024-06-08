@@ -1,0 +1,39 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "project": ["./tsconfig.json"],
+      "ecmaVersion": "latest"
+    },
+    "env": {
+        "browser": true,
+        "commonjs": false,
+        "es2022": true,
+        "node": false
+    },
+    "extends": [
+        "standard",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "dot-notation": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "quote-props": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars":  "off",
+        "@typescript-eslint/no-misused-new": "off",
+        "@typescript-eslint/no-namespace": "off"
+     },
+    "ignorePatterns": [
+        "node_modules/",
+        "src/**/*.mjs",
+        "**/*.js"
+    ],
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "root": true
+}

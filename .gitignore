@@ -1,0 +1,42 @@
+# exclude dir
+package-lock.json
+/tmp
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+lib
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Linter
+.eslintrc
+.jshintrc
+
+
+# OS cache
+.DS_Store
+Thumbs.db
+Desktop.ini
